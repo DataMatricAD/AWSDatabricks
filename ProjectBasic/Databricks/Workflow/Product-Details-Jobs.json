@@ -1,0 +1,293 @@
+{
+  "job_id": 788513563788530,
+  "creator_user_name": "abhijit**************@gmail.com",
+  "run_as_user_name": "abhijit**************@gmail.com",
+  "run_as_owner": true,
+  "settings": {
+    "name": "Product-Details-Job",
+    "email_notifications": {
+      "no_alert_for_skipped_runs": false
+    },
+    "webhook_notifications": {},
+    "timeout_seconds": 0,
+    "max_concurrent_runs": 1,
+    "tasks": [
+      {
+        "task_key": "categories_src_bronze",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSourceToBronze",
+          "base_parameters": {
+            "source_path": "dbfs:/mnt/s3productordereast2/categories/",
+            "database_name": "databricks_lakehouse_demo_ws_e2.product_bronze_db",
+            "table_name": "categories"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "categories_bronze_silver",
+        "depends_on": [
+          {
+            "task_key": "categories_src_bronze"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductBronzeToSilver",
+          "base_parameters": {
+            "bronze_table": "databricks_lakehouse_demo_ws_e2.product_bronze_db.categories",
+            "silver_table": "databricks_lakehouse_demo_ws_e2.product_silver_db.categories",
+            "primary_key": "category_id",
+            "selected_cols": "category_department_id,category_id,category_name"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "customers_src_bronze",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSourceToBronze",
+          "base_parameters": {
+            "source_path": "dbfs:/mnt/s3productordereast2/customers/",
+            "database_name": "databricks_lakehouse_demo_ws_e2.product_bronze_db",
+            "table_name": "customers"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "customers_bronze_silver",
+        "depends_on": [
+          {
+            "task_key": "customers_src_bronze"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductBronzeToSilver",
+          "base_parameters": {
+            "bronze_table": "databricks_lakehouse_demo_ws_e2.product_bronze_db.customers",
+            "silver_table": "databricks_lakehouse_demo_ws_e2.product_silver_db.customers",
+            "primary_key": "customer_id",
+            "selected_cols": "customer_city,customer_email,customer_fname,customer_id,customer_lname,customer_password,customer_state,customer_street,customer_zipcode"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "departments_src_bronze",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSourceToBronze",
+          "base_parameters": {
+            "source_path": "dbfs:/mnt/s3productordereast2/departments/",
+            "database_name": "databricks_lakehouse_demo_ws_e2.product_bronze_db",
+            "table_name": "departments"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "departments_bronze_silver",
+        "depends_on": [
+          {
+            "task_key": "departments_src_bronze"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductBronzeToSilver",
+          "base_parameters": {
+            "bronze_table": "databricks_lakehouse_demo_ws_e2.product_bronze_db.departments",
+            "silver_table": "databricks_lakehouse_demo_ws_e2.product_silver_db.departments",
+            "primary_key": "department_id",
+            "selected_cols": "department_id,department_name"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "order_items_src_bronze",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSourceToBronze",
+          "base_parameters": {
+            "source_path": "dbfs:/mnt/s3productordereast2/order_items/",
+            "database_name": "databricks_lakehouse_demo_ws_e2.product_bronze_db",
+            "table_name": "order_items"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "order_items_bronze_silver",
+        "depends_on": [
+          {
+            "task_key": "order_items_src_bronze"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductBronzeToSilver",
+          "base_parameters": {
+            "bronze_table": "databricks_lakehouse_demo_ws_e2.product_bronze_db.order_items",
+            "silver_table": "databricks_lakehouse_demo_ws_e2.product_silver_db.order_items",
+            "primary_key": "order_item_id",
+            "selected_cols": "order_item_id,order_item_order_id,order_item_product_id,order_item_product_price,order_item_quantity,order_item_subtotal"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "orders_src_bronze",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSourceToBronze",
+          "base_parameters": {
+            "source_path": "dbfs:/mnt/s3productordereast2/orders/",
+            "database_name": "databricks_lakehouse_demo_ws_e2.product_bronze_db",
+            "table_name": "orders"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "orders_bronze_silver",
+        "depends_on": [
+          {
+            "task_key": "orders_src_bronze"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductBronzeToSilver",
+          "base_parameters": {
+            "bronze_table": "databricks_lakehouse_demo_ws_e2.product_bronze_db.orders",
+            "silver_table": "databricks_lakehouse_demo_ws_e2.product_silver_db.orders",
+            "primary_key": "order_id",
+            "selected_cols": "order_customer_id,order_date,order_id,order_status"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "products_src_bronze",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSourceToBronze",
+          "base_parameters": {
+            "source_path": "dbfs:/mnt/s3productordereast2/products/",
+            "database_name": "databricks_lakehouse_demo_ws_e2.product_bronze_db",
+            "table_name": "products"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "products_bronze_silver",
+        "depends_on": [
+          {
+            "task_key": "products_src_bronze"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductBronzeToSilver",
+          "base_parameters": {
+            "bronze_table": "databricks_lakehouse_demo_ws_e2.product_bronze_db.products",
+            "silver_table": "databricks_lakehouse_demo_ws_e2.product_silver_db.products",
+            "primary_key": "product_id",
+            "selected_cols": "product_category_id,product_description,product_id,product_image,product_name,product_price"
+          },
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "product_order_details_gold",
+        "depends_on": [
+          {
+            "task_key": "customers_bronze_silver"
+          },
+          {
+            "task_key": "orders_bronze_silver"
+          },
+          {
+            "task_key": "departments_bronze_silver"
+          },
+          {
+            "task_key": "products_bronze_silver"
+          },
+          {
+            "task_key": "order_items_bronze_silver"
+          },
+          {
+            "task_key": "categories_bronze_silver"
+          }
+        ],
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/abhijit**************@gmail.com/ProductSilverToGold",
+          "source": "WORKSPACE"
+        },
+        "existing_cluster_id": "0314-220909-*******",
+        "timeout_seconds": 0,
+        "email_notifications": {}
+      }
+    ],
+    "format": "MULTI_TASK",
+    "queue": {
+      "enabled": true
+    }
+  },
+  "created_time": 1742159908443
+}
