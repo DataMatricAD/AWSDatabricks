@@ -1,8 +1,7 @@
 # AWSDatabricks
 AWS Databricks Projects
 
-![image](https://github.com/user-attachments/assets/6f5f7a08-991f-4d32-820a-03a15fee5a18)
-
+![image](https://github.com/user-attachments/assets/346fa400-6415-4bcf-8bd4-87c33eec51a8)
 
 Create AWS Account, add and verify your credentials
 Note: please don’t forget to clean-up the resources, once you are done with your project, demo – for personal use. If it is for your organization then resources will be handled by your platform team.
