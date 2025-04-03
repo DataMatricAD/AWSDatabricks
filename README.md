@@ -46,6 +46,54 @@ Now we would be able to see that the new Databricks account has been mapped. Cli
 Configure AWS Databricks Workspace (select workspace region, S3, cross-account IAM Role)
 ![image](https://github.com/user-attachments/assets/1152f8d1-0e03-40d6-bc2f-294bdc1a1092)
 ![image](https://github.com/user-attachments/assets/3f2d2797-effc-41d4-8ce6-ed9c27e36377)
+![image](https://github.com/user-attachments/assets/6dfcdc56-855f-4962-9e05-683b19fe0c93)
+![image](https://github.com/user-attachments/assets/96d5a575-162d-41d8-ae7d-eb124a6a4aa3)
+![image](https://github.com/user-attachments/assets/c173c253-ebfe-426f-ba04-2fb1a18dd329)
+
+Then we need to setup VPC configuration (Nodes, VPC, Internet, electric IP, subnets and other network services to prepare and launch the Databricks (Product).
+![image](https://github.com/user-attachments/assets/10817754-9e30-4a7a-a909-a61bd9371327)
+
+Once you click on Launch button, then we will be able to see that AWS Databricks service is getting 
+![image](https://github.com/user-attachments/assets/f1e033a8-fe0e-435f-acc6-cecefc3f702a)
+![image](https://github.com/user-attachments/assets/0d62a1b5-3800-433e-b673-5f703abadd69)
+
+We can open Databricks account page from here or from your email (will receive an email to the registered email-id)
+![image](https://github.com/user-attachments/assets/411b920d-991b-4cb5-a381-f1bb1bb4dfb8)
+![image](https://github.com/user-attachments/assets/affd6c47-abdc-49ad-9c03-48c0864a99f0)
+While trying to open the account page, we will be receiving verification (onetime) code.
+![image](https://github.com/user-attachments/assets/0b47e22e-a6ee-4366-b06a-56fc2cfa562e)
+
+Default workspace and catalog will be provisioning under the same region. If you would like to create separate catalog, then we need to have separate workspace in different region.
+![image](https://github.com/user-attachments/assets/af2feed7-0a7a-43cd-aaa7-12917c3bf906)
+![image](https://github.com/user-attachments/assets/73157650-553a-4ab6-82cb-ef9fa7fef8e3)
+
+You will receive an email after a successful workspace creation (can open workspace from account page as well).
+![image](https://github.com/user-attachments/assets/d632bb84-f5fe-44eb-94ae-19b264558535)
+![image](https://github.com/user-attachments/assets/c7d447ed-92f5-47d5-8b22-7694ba5c4978)
+![image](https://github.com/user-attachments/assets/5db30bf2-e4a5-4fac-931a-57883574927a)
+
+Create a Redshift Serverless resource
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
